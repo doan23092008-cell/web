@@ -1,0 +1,230 @@
+:root {
+  --accent: #d35400;
+  --accent-light: #f39c12;
+  --bg: #fffdf8;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: #222;
+  line-height: 1.6;
+}
+.menu-container {
+  position: relative; /* giữ menu độc lập, không bị cắt */
+}
+/* ---------------- HEADER ---------------- */
+/* header {
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  color: white;
+  text-align: center;
+  padding: 16px 20px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+}
+
+header .lead {
+  margin: 4px 0 10px;
+  font-size: 1rem;
+} */
+ /* --- Header hiển thị 2 dòng trên 1 hàng --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #c2410c, #f97316);
+  color: white;
+  padding: 16px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* khoảng cách giữa 2 câu */
+  flex-wrap: wrap; /* tránh tràn trên mobile */
+}
+
+header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+header .lead {
+  flex: 1; /* chiếm phần giữa */
+  text-align: center;
+  font-size: 1.05rem;
+  margin: 0;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+/* --- Menu giữ nguyên kiểu cũ --- */
+.menu-container {
+  position: static;           /* 👈 bỏ absolute để tham gia flex */
+  display: flex;
+  align-items: center;
+}
+
+.menu-toggle {
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.25s;
+}
+
+
+/* ---------------- MENU ---------------- */
+.menu-container { position: relative; display: inline-block; }
+.menu-toggle { font-size: 24px; background: none; border: none; cursor: pointer; }
+
+.menu-container:hover .menu-dropdown { display: block; }
+
+.menu-container {
+  position: absolute;
+  top: 18px;
+  right: 30px;
+}
+
+.menu-toggle {
+  font-size: 26px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 36px;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  overflow: hidden;
+  min-width: max-content;
+}
+
+.menu-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-dropdown li {
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.menu-dropdown li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.menu-dropdown li:hover a {
+  color: var(--accent);
+}
+
+.menu-container.active .menu-dropdown {
+  display: block;
+}
+
+/* ---------------- NỘI DUNG ---------------- */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding:2px;
+}
+
+
+h2.trg{color:white;}
+h2 {
+  color: var(--accent);
+  border-left: 5px solid var(--accent-light);
+  padding-left: 10px;
+  margin-top: 40px;
+}
+
+p {
+  text-align: justify;
+}
+
+figure {
+  text-align: center;
+  margin: 25px 0;
+}
+
+figure img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+figure img:hover {
+  transform: scale(1.03);
+}
+
+figcaption {
+  margin-top: 10px;
+  background: #fff4e6;
+  padding: 8px 16px;
+  border-left: 4px solid var(--accent-light);
+  display: inline-block;
+  border-radius: 6px;
+  color: #555;
+  font-style: italic;
+}
+
+/* Hiệu ứng cuộn */
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  header {
+    padding: 14px 10px 20px;
+  }
+  header h2 {
+    font-size: 1.3rem;
+  }
+  .menu-container {
+    top: 12px;
+    right: 20px;
+  }
+}
