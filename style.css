@@ -22,7 +22,7 @@ header {
   position: relative; /* giữ menu độc lập, không bị cắt */
 }
 /* Menu ẩn mặc định */
-/* .menu-dropdown {
+.menu-dropdown {
   display: none;
   position: absolute;
   top: 100%;
@@ -35,7 +35,7 @@ header {
   padding: 12px 0;
   z-index: 1000;
   transition: all 0.3s ease;
-} */
+}
 
 .menu-dropdown {
   display: none;
