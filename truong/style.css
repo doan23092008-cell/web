@@ -14,6 +14,36 @@
       color: #111;
       line-height: 1.6;
     }
+.class-info {
+  background-color: #fff7ef;
+  border-left: 4px solid #ff7a00;
+  padding: 12px 16px;
+  margin: 0 auto 20px; /* căn giữa nếu có max-width */
+  border-radius: 8px;
+  width: 100%; /* 👈 chiếm toàn bộ chiều rộng container */
+  box-sizing: border-box;
+  font-size: clamp(1rem, 1.2vw + 0.5rem, 1.3rem); /* 👈 tự động thay đổi font */
+}
+
+.class-info h3 {
+  margin-top: 0;
+  color: #d55c00;
+  font-size: clamp(1.2rem, 1.5vw + 0.6rem, 1.6rem); /* 👈 font tiêu đề lớn hơn */
+  text-align: left; /* hoặc center nếu muốn căn giữa */
+}
+
+.class-info ul li,
+.class-info p {
+  font-size: clamp(0.95rem, 1vw + 0.5rem, 1.2rem);
+  line-height: 1.6;
+}
+
+/* Đảm bảo container không giới hạn chiều rộng */
+.container {
+  max-width: none;
+  width: 100%;
+  padding: 0 20px;
+}
 
     /* ===== HEADER ===== */
     header {

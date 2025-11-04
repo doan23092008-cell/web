@@ -8,21 +8,24 @@ header {
 }
 
 .menu-container {
-  position: relative;
-  display: inline-block;
+  position: static;           /* 👈 bỏ absolute để tham gia flex */
+  display: flex;
+  align-items: center;
 }
 
 .menu-toggle {
-  font-size: 24px;
+  font-size: 26px;
   background: none;
   border: none;
+  color: white;
   cursor: pointer;
+  transition: transform 0.25s;
 }
-.menu-container {
-  position: relative; /* giữ menu độc lập, không bị cắt */
-}
+/* .menu-container {
+  position: relative;
+} */
 /* Menu ẩn mặc định */
-.menu-dropdown {
+/* .menu-dropdown {
   display: none;
   position: absolute;
   top: 100%;
@@ -35,20 +38,23 @@ header {
   padding: 12px 0;
   z-index: 1000;
   transition: all 0.3s ease;
-}
+} */
 
-.menu-dropdown {
-  display: none;
-  position: absolute;
-  right: 20px;
-  top: 60px;
-  background: white;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  border-radius: 6px;
-  overflow-y: auto; /* Cho phép cuộn menu */
-  max-height: 200px; /* Giới hạn chiều cao menu, sau đó cuộn */
-  z-index: 2000; /* Đảm bảo hiển thị trên header */
-}
+    .menu-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 45px;
+      background-color: #fff;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      min-width: 260px;
+      padding: 12px 0;
+      z-index: 2000;
+      overflow-y: auto;
+      max-height: 250px;
+    }
 
 
 .menu-dropdown ul {
@@ -100,10 +106,17 @@ header h2, header p {
 }
 
 /* Tạo khoảng trống để nội dung không bị header che mất */
-body {
-  margin-top: 150px; /* chỉnh tùy chiều cao header thực tế */
-  
-}
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Inter", system-ui, "-apple-system", "Segoe UI", "Roboto";
+      margin: 0;
+      background: var(--bg);
+      color: #111;
+      line-height: 1.6;
+      margin-top: 60px;
+      margin-right: 0;
+    }
+
 
 header {
   position: fixed;
@@ -158,10 +171,40 @@ header p.lead {
 
  */
 
+.class-info {
+  background-color: #fff7ef;
+  border-left: 4px solid #ff7a00;
+  padding: 12px 16px;
+  margin: 0 auto 20px; /* căn giữa nếu có max-width */
+  border-radius: 8px;
+  width: 100%; /* 👈 chiếm toàn bộ chiều rộng container */
+  box-sizing: border-box;
+  font-size: clamp(1rem, 1.2vw + 0.5rem, 1.3rem); /* 👈 tự động thay đổi font */
+}
+
+.class-info h3 {
+  margin-top: 0;
+  color: #d55c00;
+  font-size: clamp(1.2rem, 1.5vw + 0.6rem, 1.6rem); /* 👈 font tiêu đề lớn hơn */
+  text-align: left; /* hoặc center nếu muốn căn giữa */
+}
+
+.class-info ul li,
+.class-info p {
+  font-size: clamp(0.95rem, 1vw + 0.5rem, 1.2rem);
+  line-height: 1.6;
+}
+
+/* Đảm bảo container không giới hạn chiều rộng */
+.container {
+  max-width:max-content;
+  width: 100%;
+  padding: 0 20px;
+}
 
 
 
-
+/* 
 .class-info {
   background-color: #fff7ef;
   border-left: 4px solid #ff7a00;
@@ -172,13 +215,28 @@ header p.lead {
 .class-info h3 {
   margin-top: 0;
   color: #d55c00;
-}
+} */
 
-
-:root{--accent:#c2410c;--muted:#6b7280;--bg:#fffaf5;--card:#ffffff}
-*{box-sizing:border-box}
-body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#111}
-header{background:linear-gradient(90deg,var(--accent),#f97316); color:white; padding:20px 20px}
+    :root {
+      --accent: #c2410c;
+      --muted: #6b7280;
+      --bg: #fffaf5;
+      --card: #ffffff;
+    }
+   header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(90deg, var(--accent), #f97316);
+      color: white;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 3000;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
 .container{max-width:1000px;margin:0 auto;padding:2px}
 .brand{display:flex;gap:16px;align-items:center}
 .logo{width:64px;height:64px;border-radius:12px;background:white;color:var(--accent);display:grid;place-items:center;font-weight:700}
@@ -232,3 +290,29 @@ footer{padding:28px 20px;text-align:center;color:var(--muted);font-size:14px}
 }
 
 
+/* --- Khu vực tiêu đề và nội dung chính sau ô cam --- */
+article {
+  width: 100vw;                /* 👈 full chiều ngang màn hình */
+  margin-left: 50%;
+  transform: translateX(-50%); /* 👈 căn giữa trong trang */
+  padding: 0 8vw;              /* 👈 khoảng cách 2 bên linh hoạt */
+  box-sizing: border-box;
+}
+
+/* --- Tiêu đề lớn (Ba năm...) --- */
+article h2 {
+  font-size: clamp(1.6rem, 2vw + 0.8rem, 2.4rem); /* 👈 tăng font linh hoạt */
+  font-weight: 700;
+  margin-top: 30px;
+  color: #111;
+}
+
+/* --- Đoạn văn và nội dung bên dưới --- */
+article p,
+article li {
+  font-size: clamp(1rem, 1.1vw + 0.5rem, 1.25rem);
+  line-height: 1.8;
+  color: #222;
+  text-align: justify;
+  max-width: 100%;
+}
