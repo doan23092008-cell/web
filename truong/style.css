@@ -81,12 +81,6 @@
   transition: transform 0.25s;
 }
 
-/* .menu-toggle:hover {
-  transform: scale(1.15);     
-}
-
- */
-
 
     .menu-dropdown {
       display: none;
@@ -242,5 +236,6 @@ header .brand p {
   display: inline-block;
   border-radius: 6px;
 }
+
 
 
