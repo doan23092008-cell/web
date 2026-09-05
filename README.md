@@ -4,7 +4,7 @@ Website giới thiệu **lớp 12A2 – Trường THPT A Kim Bảng**, ghi lại
 
 ## Demo
 
- [Xem website](https://doan23092008-cell.github.io/school-introduction/)
+ [Xem website](https://anlabs-cs.github.io/school-introduction/)
 
 ## Tech Stack
 
